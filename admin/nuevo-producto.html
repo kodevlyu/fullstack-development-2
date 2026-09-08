@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuevo producto</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="nav-admin">
+      <a href="index.html">Home administrador</a>
+      <a href="productos.html" class="activo">Productos</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Crear nuevo producto</h1>
+    <form id="form-nuevo-producto" class="form-admin">
+      <label for="codigo">Código</label>
+      <input id="codigo" name="codigo" type="text">
+
+      <label for="categoria">Categoría</label>
+      <input id="categoria" name="categoria" type="text">
+
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text">
+
+      <label for="precio">Precio</label>
+      <input id="precio" name="precio" type="number">
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" name="descripcion"></textarea>
+
+      <button type="submit" class="btn">Guardar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2024 Pastelería Mil Sabores - Administrador</p>
+  </footer>
+</body>
+</html>
