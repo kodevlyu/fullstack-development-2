@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrador - Productos</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="nav-admin">
+      <a href="index.html">Home administrador</a>
+      <a href="productos.html" class="activo">Productos</a>
+      <a href="usuarios.html">Usuarios</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Gestión de productos</h1>
+    <a href="nuevo-producto.html" class="btn">Nuevo producto</a>
+
+    <table class="tabla-admin">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Categoría</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-productos">
+        <!-- Filas generadas por JS -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>© 2024 Pastelería Mil Sabores - Administrador</p>
+  </footer>
+</body>
+</html>
