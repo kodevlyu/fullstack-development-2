@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrador - Productos</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <!-- NAV ADMIN -->
+  <!-- // Menú superior del administrador: navegación entre módulos -->
+  <header>
+    <nav aria-label="Navegación administrador">
+      <ul class="menu-admin">
+        <li><a href="index.html">Home administrador</a></li>
+        <li><a href="productos.html" aria-current="page" class="activo">Productos</a></li>
+        <li><a href="usuarios.html">Usuarios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <!-- // Contenedor general de la vista de gestión de productos -->
+  <main class="contenedor-admin">
+
+    <h1>Gestión de productos</h1>
+
+    <!-- // Botón para crear un nuevo producto -->
+    <div class="acciones-superiores">
+      <a href="nuevo-producto.html" class="btn btn-primario">Nuevo producto</a>
+    </div>
+
+    <!-- TABLA DE PRODUCTOS -->
+    <!-- // Tabla administrativa: lista completa de productos -->
+    <table class="tabla-admin">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Categoría</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Disponible</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <!-- // Filas generadas dinámicamente por admin-productos.js -->
+      <tbody id="tabla-productos"></tbody>
+    </table>
+
+    <!-- MENSAJE DE ESTADO -->
+    <!-- // Mensajes de acciones: eliminar, actualizar, errores -->
+    <p id="estado-admin" class="estado-admin"></p>
+
+  </main>
+
+  <!-- FOOTER -->
+  <!-- // Pie de página del módulo administrador -->
+  <footer>
+    <p>© 2026 Pastelería Mil Sabores - Administrador</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <!-- // Datos del catálogo + lógica del módulo administrador -->
+  <script src="../js/productos-data.js"></script>
+  <script src="../js/admin-productos.js"></script>
+</body>
+</html>

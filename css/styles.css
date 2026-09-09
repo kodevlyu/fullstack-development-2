@@ -622,3 +622,164 @@ a {
     gap: 36px;
   }
 }
+
+
+/* Formularios (registro, login, contacto) */
+.seccion-formulario {
+  width: min(720px, calc(100% - 32px));
+  margin: 48px auto 80px;
+  padding: 40px clamp(20px, 4vw, 48px);
+  background: var(--color-blanco);
+  border: 1px solid rgb(139 69 19 / 12%);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgb(93 64 55 / 12%);
+}
+
+.seccion-formulario h1 {
+  margin-bottom: 8px;
+  color: var(--color-cafe-oscuro);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.seccion-formulario > p {
+  margin-bottom: 32px;
+  color: rgb(93 64 55 / 80%);
+}
+
+.formulario {
+  display: grid;
+  gap: 20px;
+}
+
+.fila-campos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.campo {
+  display: grid;
+  gap: 6px;
+}
+
+.campo label {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--color-cafe-oscuro);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--color-cafe-oscuro);
+  background-color: var(--color-crema);
+  border: 2px solid rgb(139 69 19 / 18%);
+  border-radius: 12px;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.campo textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--color-cafe);
+  box-shadow: 0 0 0 3px rgb(139 69 19 / 15%);
+}
+
+.campo select:disabled {
+  color: rgb(93 64 55 / 50%);
+  cursor: not-allowed;
+}
+
+.campo-invalido {
+  border-color: #b3261e !important;
+  background-color: rgb(179 38 30 / 6%) !important;
+}
+
+.mensaje-error {
+  min-height: 1.1em;
+  color: #b3261e;
+  font-size: 0.85rem;
+}
+
+.mensaje-error-general {
+  padding: 12px 16px;
+  color: #b3261e;
+  background-color: rgb(179 38 30 / 8%);
+  border: 1px solid rgb(179 38 30 / 25%);
+  border-radius: 12px;
+}
+
+.mensaje-exito {
+  padding: 12px 16px;
+  color: #2e7d32;
+  background-color: rgb(46 125 50 / 8%);
+  border: 1px solid rgb(46 125 50 / 25%);
+  border-radius: 12px;
+}
+
+.formulario .boton {
+  justify-self: start;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.enlace-formulario {
+  margin-top: 20px;
+  color: rgb(93 64 55 / 80%);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.enlace-formulario a {
+  color: var(--color-cafe);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .fila-campos {
+    grid-template-columns: 1fr;
+  }
+
+
+/* ===== MENÚ ADMIN ESTILO PASTELERÍA ===== */
+
+.menu-admin {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 15px 20px;
+  background-color: #fff;
+}
+
+.menu-admin li a {
+  text-decoration: none;
+  color: #4a2c2a; /* café suave */
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover igual al menú público */
+.menu-admin li a:hover {
+  background-color: #f7b6c8; /* rosado pastel */
+  color: #4a2c2a;
+}
+
+/* Botón activo igual al menú público */
+.menu-admin .activo {
+  background-color: #f7b6c8;
+  color: #4a2c2a;
+  border-radius: 8px;
+}
+

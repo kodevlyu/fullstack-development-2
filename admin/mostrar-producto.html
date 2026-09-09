@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ver producto - Administrador</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <!-- NAV ADMIN -->
+  <header>
+    <nav aria-label="Navegación administrador">
+      <ul class="menu-admin">
+        <li><a href="index.html">Home administrador</a></li>
+        <li><a href="productos.html" aria-current="page" class="activo">Productos</a></li>
+        <li><a href="usuarios.html">Usuarios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contenedor-admin">
+
+    <h1>Detalle del producto</h1>
+
+    <section id="detalle-producto-admin" class="detalle-producto-admin">
+      <!-- JS mostrará:
+           - imagen del producto
+           - nombre
+           - categoría
+           - precio
+           - disponibilidad
+           - descripción
+      -->
+    </section>
+
+    <div class="acciones-superiores">
+      <a href="productos.html" class="btn btn-primario">Volver al listado</a>
+    </div>
+
+    <p id="estado-admin" class="estado-admin"></p>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Pastelería Mil Sabores - Administrador</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="../js/productos-data.js"></script>
+  <script src="../js/admin-productos.js"></script>
+</body>
+</html>
