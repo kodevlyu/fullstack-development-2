@@ -572,6 +572,7 @@ a {
   font-size: 0.88rem;
 }
 
+
 /* Formularios (registro, login, contacto) */
 .seccion-formulario {
   width: min(720px, calc(100% - 32px));
@@ -697,4 +698,37 @@ a {
   .fila-campos {
     grid-template-columns: 1fr;
   }
+
+
+/* ===== MENÚ ADMIN ESTILO PASTELERÍA ===== */
+
+.menu-admin {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 15px 20px;
+  background-color: #fff;
 }
+
+.menu-admin li a {
+  text-decoration: none;
+  color: #4a2c2a; /* café suave */
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover igual al menú público */
+.menu-admin li a:hover {
+  background-color: #f7b6c8; /* rosado pastel */
+  color: #4a2c2a;
+}
+
+/* Botón activo igual al menú público */
+.menu-admin .activo {
+  background-color: #f7b6c8;
+  color: #4a2c2a;
+  border-radius: 8px;
+}
+

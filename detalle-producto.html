@@ -2,40 +2,68 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Detalle de producto</title>
+  <title>Detalle del Producto - Pastelería Mil Sabores</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <header>
-    <nav class="nav-principal">
-      <a href="index.html">Inicio</a>
-      <a href="productos.html">Productos</a>
-      <a href="blogs.html">Blogs</a>
-      <a href="nosotros.html">Nosotros</a>
-      <a href="contacto.html">Contacto</a>
+  <!-- Encabezado y navegación principal -->
+  <!-- // Barra superior del sitio: logo + menú principal -->
+  <header class="encabezado-principal">
+    <a class="marca" href="index.html">Pastelería Mil Sabores</a>
+
+    <nav aria-label="Navegación principal">
+      <!-- // Menú de navegación del sitio público -->
+      <ul class="menu-principal">
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main>
+  <!-- CONTENIDO PRINCIPAL -->
+  <!-- // Contenedor general del detalle del producto -->
+  <main class="contenedor">
+
+    <!-- DETALLE DEL PRODUCTO -->
+    <!-- // Aquí main.js inserta imagen, nombre, precio, categoría y descripción -->
     <section id="detalle-producto" class="detalle-producto">
-      <!-- Aquí se mostrará la información del producto -->
+      <!-- Render dinámico desde main.js -->
     </section>
 
-    <section id="personalizacion" class="personalizacion">
-      <h2>Mensaje especial (solo tortas)</h2>
+    <!-- BLOQUE DE PERSONALIZACIÓN -->
+    <!-- // Formulario opcional para agregar mensaje personalizado a tortas -->
+    <section id="personalizacion" class="personalizacion" style="display:none;">
+      <h2>Personaliza tu pedido</h2>
+
       <form id="form-mensaje">
-        <textarea id="mensaje" maxlength="80"
-                  placeholder="Escribe tu mensaje especial"></textarea>
-        <button type="submit">Guardar mensaje</button>
+        <label for="mensaje">Mensaje para la torta (opcional):</label>
+        <!-- // Campo donde el cliente escribe su mensaje -->
+        <textarea id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+
+        <!-- // Botón para guardar el mensaje (manejado por main.js) -->
+        <button type="submit" class="btn">Guardar mensaje</button>
+
+        <!-- // Estado del mensaje (éxito / error) -->
+        <p id="estado-mensaje" class="estado-mensaje"></p>
       </form>
-      <p id="estado-mensaje"></p>
     </section>
 
-    <a href="productos.html" class="link-volver">← Volver al catálogo</a>
   </main>
 
+  <!-- FOOTER -->
+  <!-- // Pie de página del sitio -->
   <footer>
-    <p>© 2024 Pastelería Mil Sabores</p>
+    <p>© 2026 Pastelería Mil Sabores</p>
   </footer>
+
+  <!-- SCRIPTS -->
+  <!-- // Datos del catálogo + lógica de detalle y personalización -->
+  <script src="js/productos-data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

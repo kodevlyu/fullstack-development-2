@@ -2,41 +2,88 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Nuevo producto</title>
+  <title>Nuevo producto - Administrador</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
+  <!-- NAV ADMIN -->
+  <!-- // Menú superior del administrador: navegación entre módulos -->
   <header>
-    <nav class="nav-admin">
-      <a href="index.html">Home administrador</a>
-      <a href="productos.html" class="activo">Productos</a>
+    <nav aria-label="Navegación administrador">
+      <ul class="menu-admin">
+        <li><a href="index.html">Home administrador</a></li>
+        <li><a href="productos.html" aria-current="page" class="activo">Productos</a></li>
+        <li><a href="usuarios.html">Usuarios</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main>
+  <!-- CONTENIDO PRINCIPAL -->
+  <!-- // Contenedor general del formulario de creación -->
+  <main class="contenedor-admin">
+
     <h1>Crear nuevo producto</h1>
+
+    <!-- // Formulario para ingresar los datos del nuevo producto -->
     <form id="form-nuevo-producto" class="form-admin">
+
+      <!-- // Código único del producto -->
       <label for="codigo">Código</label>
-      <input id="codigo" name="codigo" type="text">
+      <input id="codigo" name="codigo" type="text" required placeholder="Ej: TC001">
 
+      <!-- // Categoría seleccionada desde opciones predefinidas -->
       <label for="categoria">Categoría</label>
-      <input id="categoria" name="categoria" type="text">
+      <select id="categoria" name="categoria" required>
+        <option value="">Seleccione una categoría</option>
+        <option value="Tortas Cuadradas">Tortas Cuadradas</option>
+        <option value="Tortas Circulares">Tortas Circulares</option>
+        <option value="Postres Individuales">Postres Individuales</option>
+        <option value="Productos Sin Azúcar">Productos Sin Azúcar</option>
+        <option value="Pastelería Tradicional">Pastelería Tradicional</option>
+        <option value="Productos Sin Gluten">Productos Sin Gluten</option>
+        <option value="Productos Veganos">Productos Veganos</option>
+        <option value="Tortas Especiales">Tortas Especiales</option>
+      </select>
 
+      <!-- // Nombre comercial del producto -->
       <label for="nombre">Nombre</label>
-      <input id="nombre" name="nombre" type="text">
+      <input id="nombre" name="nombre" type="text" required placeholder="Ej: Torta Selva Negra">
 
+      <!-- // Precio en CLP -->
       <label for="precio">Precio</label>
-      <input id="precio" name="precio" type="number">
+      <input id="precio" name="precio" type="number" min="0" required placeholder="Ej: 15990">
 
+      <!-- // Descripción detallada del producto -->
       <label for="descripcion">Descripción</label>
-      <textarea id="descripcion" name="descripcion"></textarea>
+      <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Describe el producto..."></textarea>
 
-      <button type="submit" class="btn">Guardar</button>
+      <!-- // Disponibilidad del producto en catálogo -->
+      <label for="disponible">Disponible</label>
+      <select id="disponible" name="disponible" required>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+
+      <!-- // Botón para guardar el nuevo producto -->
+      <button type="submit" class="btn btn-primario">Guardar producto</button>
+
+      <!-- // Mensaje de estado: éxito o errores -->
+      <p id="estado-admin" class="estado-admin"></p>
+
     </form>
+
   </main>
 
+  <!-- FOOTER -->
+  <!-- // Pie de página del módulo administrador -->
   <footer>
-    <p>© 2024 Pastelería Mil Sabores - Administrador</p>
+    <p>© 2026 Pastelería Mil Sabores - Administrador</p>
   </footer>
+
+  <!-- SCRIPTS -->
+  <!-- // Datos del catálogo + lógica del módulo administrador -->
+  <script src="../js/productos-data.js"></script>
+  <script src="../js/admin-productos.js"></script>
 </body>
 </html>

@@ -129,4 +129,171 @@ function inicializarRegionesComunas(selectRegion, selectComuna) {
   selectRegion.addEventListener("change", () => {
     llenarSelectComunas(selectComuna, selectRegion.value);
   });
+
 }
+
+// VALIDACIONES PARA PRODUCTOS (nuevo-producto.html / editar-producto.html)
+
+// Código obligatorio, sin espacios, máximo 10 caracteres
+function validarCodigoProducto() {
+  const input = document.getElementById("codigo");
+  if (!input) return true; // en editar-producto es readonly
+
+  const valor = input.value.trim();
+
+  if (!valor) {
+    mostrarError("codigo", "El código es obligatorio.");
+    return false;
+  }
+  if (/\s/.test(valor)) {
+    mostrarError("codigo", "El código no puede contener espacios.");
+    return false;
+  }
+  if (valor.length > 10) {
+    mostrarError("codigo", "Máximo 10 caracteres.");
+    return false;
+  }
+
+  limpiarError("codigo");
+  return true;
+}
+
+// Nombre obligatorio, máximo 100 caracteres
+function validarNombreProducto() {
+  const valor = document.getElementById("nombre").value;
+  if (!validarTextoObligatorio(valor, 100)) {
+    mostrarError("nombre", "El nombre es obligatorio (máximo 100 caracteres).");
+    return false;
+  }
+  limpiarError("nombre");
+  return true;
+}
+
+// Precio mayor a 0
+function validarPrecioProducto() {
+  const input = document.getElementById("precio");
+  const valor = Number(input.value);
+
+  if (!valor || valor <= 0) {
+    mostrarError("precio", "El precio debe ser mayor a 0.");
+    return false;
+  }
+
+  limpiarError("precio");
+  return true;
+}
+
+// Descripción obligatoria, máximo 500 caracteres
+function validarDescripcionProducto() {
+  const valor = document.getElementById("descripcion").value;
+  if (!validarTextoObligatorio(valor, 500)) {
+    mostrarError("descripcion", "La descripción es obligatoria (máximo 500 caracteres).");
+    return false;
+  }
+  limpiarError("descripcion");
+  return true;
+}
+
+// Categoría debe ser una opción válida del select
+function validarCategoriaProducto() {
+  const valor = document.getElementById("categoria").value;
+  if (!valor) {
+    mostrarError("categoria", "Selecciona una categoría.");
+    return false;
+  }
+  limpiarError("categoria");
+  return true;
+}
+
+// Disponibilidad debe ser true o false
+function validarDisponibleProducto() {
+  const valor = document.getElementById("disponible").value;
+  if (valor !== "true" && valor !== "false") {
+    mostrarError("disponible", "Selecciona disponibilidad.");
+    return false;
+  }
+  limpiarError("disponible");
+  return true;
+}
+
+// Inicializa validaciones para nuevo-producto.html
+function inicializarFormularioNuevoProducto() {
+  const form = document.getElementById("form-nuevo-producto");
+  if (!form) return;
+
+  const validadores = {
+    codigo: validarCodigoProducto,
+    categoria: validarCategoriaProducto,
+    nombre: validarNombreProducto,
+    precio: validarPrecioProducto,
+    descripcion: validarDescripcionProducto,
+    disponible: validarDisponibleProducto
+  };
+
+  Object.keys(validadores).forEach(id => {
+    const campo = document.getElementById(id);
+    if (!campo) return;
+    const evento = campo.tagName === "SELECT" ? "change" : "blur";
+    campo.addEventListener(evento, validadores[id]);
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const resultados = Object.values(validadores).map(fn => fn());
+    const valido = resultados.every(Boolean);
+    const estado = document.getElementById("estado-admin");
+
+    if (!valido) {
+      estado.textContent = "Revisa los campos marcados en rojo.";
+      return;
+    }
+
+    estado.textContent = "Producto creado (simulación EP1).";
+    form.reset();
+  });
+}
+
+// Inicializa validaciones para editar-producto.html
+function inicializarFormularioEditarProducto() {
+  const form = document.getElementById("form-editar-producto");
+  if (!form) return;
+
+  const validadores = {
+    categoria: validarCategoriaProducto,
+    nombre: validarNombreProducto,
+    precio: validarPrecioProducto,
+    descripcion: validarDescripcionProducto,
+    disponible: validarDisponibleProducto
+  };
+
+  Object.keys(validadores).forEach(id => {
+    const campo = document.getElementById(id);
+    if (!campo) return;
+    const evento = campo.tagName === "SELECT" ? "change" : "blur";
+    campo.addEventListener(evento, validadores[id]);
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const resultados = Object.values(validadores).map(fn => fn());
+    const valido = resultados.every(Boolean);
+    const estado = document.getElementById("estado-admin");
+
+    if (!valido) {
+      estado.textContent = "Revisa los campos marcados en rojo.";
+      return;
+    }
+
+    estado.textContent = "Producto actualizado (simulación EP1).";
+  });
+}
+
+// Inicialización automática según la página
+document.addEventListener("DOMContentLoaded", () => {
+  inicializarFormularioNuevoProducto();
+  inicializarFormularioEditarProducto();
+});
+}
+

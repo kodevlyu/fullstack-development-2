@@ -1,5 +1,5 @@
-// js/main.js
-
+// RENDER CATÁLOGO PÚBLICO
+// // Genera las tarjetas de productos en productos.html
 function renderProductos(lista) {
   const contenedor = document.getElementById("lista-productos");
   if (!contenedor) return;
@@ -22,6 +22,8 @@ function renderProductos(lista) {
   });
 }
 
+// INICIALIZACIÓN DEL CATÁLOGO
+// // Render inicial + filtro por categoría
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof productos !== "undefined") {
     renderProductos(productos);
@@ -39,11 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// OBTENER CÓDIGO DESDE URL
+// // Extrae el código del producto desde la query string
 function obtenerCodigoProducto() {
   const params = new URLSearchParams(window.location.search);
   return params.get("codigo");
 }
 
+// RENDER DETALLE PÚBLICO
+// // Inserta imagen, nombre, descripción, categoría y precio en detalle-producto.html
 function renderDetalleProductoPublico() {
   const cont = document.getElementById("detalle-producto");
   if (!cont || typeof productos === "undefined") return;
@@ -64,12 +70,15 @@ function renderDetalleProductoPublico() {
     <p>Precio: $${p.precio.toLocaleString("es-CL")}</p>
   `;
 
+  // // Mostrar bloque de personalización solo si el producto lo permite
   const personalizacion = document.getElementById("personalizacion");
   if (personalizacion) {
     personalizacion.style.display = p.personalizable ? "block" : "none";
   }
 }
 
+// INICIALIZACIÓN DEL DETALLE
+// // Render del detalle + manejo del formulario de personalización
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("detalle-producto")) {
     renderDetalleProductoPublico();
@@ -79,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form) {
     form.addEventListener("submit", e => {
       e.preventDefault();
+
       const mensaje = document.getElementById("mensaje").value.trim();
       const estado = document.getElementById("estado-mensaje");
 
@@ -87,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // // Simulación EP1: no se guarda realmente
       estado.textContent = "Mensaje guardado (simulación EP1).";
     });
   }
