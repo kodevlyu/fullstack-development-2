@@ -320,6 +320,7 @@ function inicializarFormularioRegistro() {
 
 document.addEventListener("DOMContentLoaded", () => {
   inicializarFormularioRegistro();
+
 });
 
 // VALIDACIONES PARA PRODUCTOS (nuevo-producto.html / editar-producto.html)
@@ -485,3 +486,6 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarFormularioNuevoProducto();
   inicializarFormularioEditarProducto();
 });
+
+});
+

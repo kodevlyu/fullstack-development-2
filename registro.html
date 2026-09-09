@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Crea tu cuenta en Pastelería Mil Sabores"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Pacifico&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <title>Pastelería Mil Sabores | Crear cuenta</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Encabezado y navegación principal -->
+    <header class="encabezado-principal">
+      <a class="marca" href="index.html">Pastelería Mil Sabores</a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu-principal">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="login.html">Iniciar sesión</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenido-principal">
+      <section class="seccion-formulario" aria-labelledby="titulo-registro">
+        <h1 id="titulo-registro">Crea tu cuenta</h1>
+        <p>
+          Regístrate para guardar tus datos, revisar tus pedidos y disfrutar
+          de descuentos exclusivos.
+        </p>
+
+        <form id="form-registro" class="formulario" novalidate>
+          <div class="fila-campos">
+            <div class="campo">
+              <label for="run">RUN</label>
+              <input
+                id="run"
+                name="run"
+                type="text"
+                maxlength="9"
+                placeholder="Ej: 187654321 (sin puntos ni guion)"
+                autocomplete="off"
+              />
+              <span class="mensaje-error" id="error-run"></span>
+            </div>
+
+            <div class="campo">
+              <label for="correo">Correo electrónico</label>
+              <input
+                id="correo"
+                name="correo"
+                type="email"
+                maxlength="100"
+                placeholder="nombre@duoc.cl"
+                autocomplete="email"
+              />
+              <span class="mensaje-error" id="error-correo"></span>
+            </div>
+          </div>
+
+          <div class="fila-campos">
+            <div class="campo">
+              <label for="nombre">Nombre</label>
+              <input
+                id="nombre"
+                name="nombre"
+                type="text"
+                maxlength="50"
+                autocomplete="given-name"
+              />
+              <span class="mensaje-error" id="error-nombre"></span>
+            </div>
+
+            <div class="campo">
+              <label for="apellidos">Apellidos</label>
+              <input
+                id="apellidos"
+                name="apellidos"
+                type="text"
+                maxlength="100"
+                autocomplete="family-name"
+              />
+              <span class="mensaje-error" id="error-apellidos"></span>
+            </div>
+          </div>
+
+          <div class="fila-campos">
+            <div class="campo">
+              <label for="contrasena">Contraseña</label>
+              <input
+                id="contrasena"
+                name="contrasena"
+                type="password"
+                maxlength="10"
+                autocomplete="new-password"
+              />
+              <span class="mensaje-error" id="error-contrasena"></span>
+            </div>
+
+            <div class="campo">
+              <label for="confirmar-contrasena">Confirmar contraseña</label>
+              <input
+                id="confirmar-contrasena"
+                name="confirmar-contrasena"
+                type="password"
+                maxlength="10"
+                autocomplete="new-password"
+              />
+              <span class="mensaje-error" id="error-confirmar-contrasena"></span>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="direccion">Dirección</label>
+            <textarea
+              id="direccion"
+              name="direccion"
+              maxlength="300"
+              autocomplete="street-address"
+            ></textarea>
+            <span class="mensaje-error" id="error-direccion"></span>
+          </div>
+
+          <div class="fila-campos">
+            <div class="campo">
+              <label for="region">Región</label>
+              <select id="region" name="region">
+                <option value="">Selecciona una región</option>
+              </select>
+              <span class="mensaje-error" id="error-region"></span>
+            </div>
+
+            <div class="campo">
+              <label for="comuna">Comuna</label>
+              <select id="comuna" name="comuna" disabled>
+                <option value="">Selecciona una región primero</option>
+              </select>
+              <span class="mensaje-error" id="error-comuna"></span>
+            </div>
+          </div>
+
+          <p id="estado-registro" role="status" aria-live="polite"></p>
+
+          <button type="submit" class="boton boton-principal">
+            Crear cuenta
+          </button>
+        </form>
+
+        <p class="enlace-formulario">
+          ¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>
+        </p>
+      </section>
+    </main>
+
+    <!-- Pie de página común - Christian -->
+    <footer class="pie-pagina">
+      <div class="pie-contenido">
+        <div class="pie-marca">
+          <a class="marca" href="index.html">Pastelería Mil Sabores</a>
+          <p>
+            Creamos momentos dulces con tradición, dedicación y sabores para
+            compartir.
+          </p>
+        </div>
+
+        <nav class="pie-navegacion" aria-label="Navegación del pie de página">
+          <h2>Explora</h2>
+          <ul>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="pie-proyecto">
+          <h2>Proyecto académico</h2>
+          <p>DSY1104 – Desarrollo Fullstack II</p>
+          <p>Duoc UC · 2026</p>
+        </div>
+      </div>
+
+      <div class="pie-inferior">
+        <p>
+          &copy; 2026 Pastelería Mil Sabores. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/regiones-comunas.js"></script>
+    <script src="js/validaciones.js"></script>
+  </body>
+</html>

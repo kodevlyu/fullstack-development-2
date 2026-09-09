@@ -571,8 +571,7 @@ a {
   border-top: 1px solid rgb(255 255 255 / 12%);
   font-size: 0.88rem;
 }
-<<<<<<< Updated upstream
-=======
+
 
 /* Formularios (registro, login, contacto) */
 .seccion-formulario {
@@ -699,7 +698,7 @@ a {
   .fila-campos {
     grid-template-columns: 1fr;
   }
-}
+
 
 /* ===== MENÚ ADMIN ESTILO PASTELERÍA ===== */
 
@@ -732,4 +731,4 @@ a {
   color: #4a2c2a;
   border-radius: 8px;
 }
->>>>>>> Stashed changes
+

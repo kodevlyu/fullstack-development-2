@@ -129,6 +129,7 @@ function inicializarRegionesComunas(selectRegion, selectComuna) {
   selectRegion.addEventListener("change", () => {
     llenarSelectComunas(selectComuna, selectRegion.value);
   });
+
 }
 
 // VALIDACIONES PARA PRODUCTOS (nuevo-producto.html / editar-producto.html)
@@ -294,3 +295,5 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarFormularioNuevoProducto();
   inicializarFormularioEditarProducto();
 });
+}
+
