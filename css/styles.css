@@ -622,8 +622,157 @@ a {
     gap: 36px;
   }
 }
+/* BLOG: separación entre el menú y el contenido */
+.seccion-blog {
+  margin-top: 48px;
+}
 
+/* Título principal del blog */
+.seccion-blog h1 {
+  margin-bottom: 16px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 3rem;
+  line-height: 1.15;
+}
 
+/* Dos columnas iguales para los dos artículos */
+.seccion-blog .beneficios-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Títulos de las tarjetas */
+.seccion-blog .beneficio h2 {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+/* Organiza cada tarjeta de arriba hacia abajo */
+.seccion-blog .beneficio {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mantiene los botones alineados al final de las tarjetas */
+.seccion-blog .boton {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* En pantallas pequeñas, los artículos quedan apilados */
+@media (max-width: 900px) {
+  .seccion-blog .beneficios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seccion-blog h1 {
+    font-size: 2.2rem;
+  }
+}
+/* ARTÍCULOS: limita el ancho del texto para facilitar la lectura */
+.contenido-articulo {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+/* Separa los temas del artículo */
+.contenido-articulo section {
+  margin-bottom: 32px;
+}
+
+/* Subtítulos de cada tema */
+.contenido-articulo h2 {
+  margin-bottom: 12px;
+  color: var(--color-rosa);
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+/* Espacio y altura de línea para los párrafos */
+.contenido-articulo p {
+  margin-bottom: 16px;
+  color: rgb(255 255 255 / 85%);
+  line-height: 1.8;
+}
+/* ==================================================
+   INICIO DEL ADMINISTRADOR
+   ================================================== */
+
+/* Contenedor principal del panel */
+.admin-inicio {
+  width: min(1180px, calc(100% - 32px));
+  margin: 48px auto 80px;
+}
+
+/* Presentación superior del administrador */
+.admin-presentacion {
+  margin-bottom: 24px;
+  padding: 48px;
+  color: var(--color-blanco);
+  background-color: var(--color-cafe-oscuro);
+  border-radius: 32px;
+}
+
+/* Título principal del panel */
+.admin-presentacion h1 {
+  margin: 8px 0 16px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+/* Organiza los accesos en tres columnas */
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Tarjeta de cada módulo */
+.admin-tarjeta {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  background-color: var(--color-blanco);
+  border: 1px solid rgb(139 69 19 / 12%);
+  border-radius: 24px;
+  box-shadow: 0 16px 36px rgb(93 64 55 / 12%);
+}
+
+/* Títulos de las tarjetas */
+.admin-tarjeta h2 {
+  margin-bottom: 12px;
+  color: var(--color-cafe-oscuro);
+  font-size: 1.5rem;
+}
+
+/* Texto de las tarjetas */
+.admin-tarjeta p {
+  margin-bottom: 24px;
+  color: rgb(93 64 55 / 80%);
+  line-height: 1.6;
+}
+
+/* Mantiene los botones alineados al final */
+.admin-tarjeta .boton {
+  margin-top: auto;
+}
+
+/* En pantallas pequeñas, las tarjetas forman una columna */
+@media (max-width: 900px) {
+  .admin-presentacion {
+    padding: 32px 24px;
+  }
+
+  .admin-presentacion h1 {
+    font-size: 2.2rem;
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* Formularios (registro, login, contacto) */
 .seccion-formulario {
   width: min(720px, calc(100% - 32px));
@@ -678,7 +827,9 @@ a {
   background-color: var(--color-crema);
   border: 2px solid rgb(139 69 19 / 18%);
   border-radius: 12px;
-  transition: border-color 180ms ease, box-shadow 180ms ease;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .campo textarea {
@@ -749,7 +900,7 @@ a {
   .fila-campos {
     grid-template-columns: 1fr;
   }
-
+}
 
 /* ===== MENÚ ADMIN ESTILO PASTELERÍA ===== */
 
@@ -767,7 +918,9 @@ a {
   font-weight: 600;
   padding: 8px 14px;
   border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Hover igual al menú público */
@@ -782,4 +935,3 @@ a {
   color: #4a2c2a;
   border-radius: 8px;
 }
-

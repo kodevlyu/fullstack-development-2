@@ -1,11 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Panel de administración de Pastelería Mil Sabores"
+    />
+
+    <!-- Fuentes utilizadas en el resto del sitio -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Pacifico&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Administrador | Pastelería Mil Sabores</title>
+
+    <!-- ../ permite salir de admin y entrar en la carpeta css -->
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Navegación principal del administrador -->
+    <header class="encabezado-principal">
+      <a class="marca" href="../index.html"> Pastelería Mil Sabores </a>
+
+      <nav aria-label="Navegación del administrador">
+        <ul class="menu-principal">
+          <li>
+            <a href="index.html" aria-current="page"> Inicio administrador </a>
+          </li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="usuarios.html">Usuarios</a></li>
+          <li><a href="../index.html">Volver a la tienda</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenido principal del panel -->
+    <main id="contenido-principal" class="admin-inicio">
+      <!-- Presentación del administrador -->
+      <section class="admin-presentacion">
+        <p class="sobrelinea">Panel de administración</p>
+        <h1>Bienvenido al área de gestión</h1>
+        <p>
+          Desde aquí puedes acceder a los módulos administrativos de la
+          pastelería.
+        </p>
+      </section>
+
+      <!-- Accesos principales del administrador -->
+      <section class="admin-grid" aria-label="Módulos de administración">
+        <!-- Módulo de productos desarrollado por Rimsky -->
+        <article class="admin-tarjeta">
+          <span class="beneficio-numero">01</span>
+          <h2>Productos</h2>
+          <p>
+            Revisa el catálogo y accede a las opciones para crear, mostrar o
+            editar productos.
+          </p>
+          <a class="boton boton-principal" href="productos.html">
+            Administrar productos
+          </a>
+        </article>
+
+        <!-- Módulo de usuarios desarrollado por Lucía -->
+        <article class="admin-tarjeta">
+          <span class="beneficio-numero">02</span>
+          <h2>Usuarios</h2>
+          <p>
+            Accede al listado de usuarios y a sus opciones de administración.
+          </p>
+          <a class="boton boton-principal" href="usuarios.html">
+            Administrar usuarios
+          </a>
+        </article>
+
+        <!-- Enlace para regresar al sitio público -->
+        <article class="admin-tarjeta">
+          <span class="beneficio-numero">03</span>
+          <h2>Sitio público</h2>
+          <p>
+            Regresa al Inicio para revisar la experiencia que verán los
+            clientes.
+          </p>
+          <a class="boton boton-secundario" href="../index.html">
+            Ver la tienda
+          </a>
+        </article>
+      </section>
+    </main>
+
+    <!-- Pie de página del administrador -->
+    <footer class="pie-pagina">
+      <div class="pie-inferior">
+        <p>&copy; 2026 Pastelería Mil Sabores · Panel de administración.</p>
+      </div>
+    </footer>
+  </body>
 </html>
