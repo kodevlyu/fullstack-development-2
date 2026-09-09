@@ -2,42 +2,53 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Editar producto</title>
+  <title>Ver producto - Administrador</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
+  <!-- NAV ADMIN -->
+  <!-- // Menú superior del administrador: navegación entre módulos -->
   <header>
-    <nav class="nav-admin">
-      <a href="index.html">Home administrador</a>
-      <a href="productos.html" class="activo">Productos</a>
+    <nav aria-label="Navegación administrador">
+      <ul class="menu-admin">
+        <li><a href="index.html">Home administrador</a></li>
+        <li><a href="productos.html" aria-current="page" class="activo">Productos</a></li>
+        <li><a href="usuarios.html">Usuarios</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main>
-    <h1>Editar producto</h1>
-    <form id="form-editar-producto" class="form-admin">
-      <!-- mismos campos que nuevo-producto, luego JS los llenará -->
-      <label for="codigo">Código</label>
-      <input id="codigo" name="codigo" type="text" readonly>
+  <!-- CONTENIDO PRINCIPAL -->
+  <!-- // Contenedor general del detalle del producto en el administrador -->
+  <main class="contenedor-admin">
 
-      <label for="categoria">Categoría</label>
-      <input id="categoria" name="categoria" type="text">
+    <h1>Detalle del producto</h1>
 
-      <label for="nombre">Nombre</label>
-      <input id="nombre" name="nombre" type="text">
+    <!-- // Sección donde admin-productos.js inserta los datos del producto -->
+    <section id="detalle-producto-admin" class="detalle-producto-admin">
+      <!-- Render dinámico desde admin-productos.js -->
+    </section>
 
-      <label for="precio">Precio</label>
-      <input id="precio" name="precio" type="number">
+    <!-- // Botón para volver al listado de productos -->
+    <div class="acciones-superiores">
+      <a href="productos.html" class="btn btn-primario">Volver al listado</a>
+    </div>
 
-      <label for="descripcion">Descripción</label>
-      <textarea id="descripcion" name="descripcion"></textarea>
+    <!-- // Mensajes de estado: errores, confirmaciones, etc. -->
+    <p id="estado-admin" class="estado-admin"></p>
 
-      <button type="submit" class="btn">Actualizar</button>
-    </form>
   </main>
 
+  <!-- FOOTER -->
+  <!-- // Pie de página del módulo administrador -->
   <footer>
-    <p>© 2024 Pastelería Mil Sabores - Administrador</p>
+    <p>© 2026 Pastelería Mil Sabores - Administrador</p>
   </footer>
+
+  <!-- SCRIPTS -->
+  <!-- // Datos del catálogo + lógica del módulo administrador -->
+  <script src="../js/productos-data.js"></script>
+  <script src="../js/admin-productos.js"></script>
 </body>
 </html>
