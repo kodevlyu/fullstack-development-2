@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Formulario de contacto para consultas y celebraciones de Pastelería Mil Sabores"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Pacifico&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <title>Contacto | Pastelería Mil Sabores</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Encabezado y navegación principal -->
+    <header class="encabezado-principal">
+      <a class="marca" href="index.html">Pastelería Mil Sabores</a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu-principal">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+          <li><a href="login.html">Iniciar sesión</a></li>
+          <!-- Acceso al formulario de registro -->
+          <li><a href="registro.html">Crear cuenta</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Formulario de contacto de la pastelería -->
+    <main id="contenido-principal">
+      <section class="seccion-formulario" aria-labelledby="titulo-contacto">
+        <h1 id="titulo-contacto">Conversemos</h1>
+        <p>
+          Cuéntanos tu idea o consulta. Queremos acompañarte en tu próxima
+          celebración.
+        </p>
+
+        <!-- JavaScript comprobará los campos antes de continuar -->
+        <form id="form-contacto" class="formulario" novalidate>
+          <!-- Nombre: obligatorio, máximo 100 caracteres -->
+          <div class="campo">
+            <label for="nombre-contacto">Nombre</label>
+            <input
+              id="nombre-contacto"
+              name="nombre"
+              type="text"
+              maxlength="100"
+              autocomplete="name"
+              aria-describedby="error-nombre-contacto"
+              required
+            />
+            <span class="mensaje-error" id="error-nombre-contacto"></span>
+          </div>
+
+          <!-- Correo: obligatorio, máximo 100 caracteres -->
+          <div class="campo">
+            <label for="correo-contacto">Correo electrónico</label>
+            <input
+              id="correo-contacto"
+              name="correo"
+              type="email"
+              maxlength="100"
+              autocomplete="email"
+              aria-describedby="ayuda-correo-contacto error-correo-contacto"
+              required
+            />
+            <small id="ayuda-correo-contacto">
+              Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.
+            </small>
+            <span class="mensaje-error" id="error-correo-contacto"></span>
+          </div>
+
+          <!-- Comentario: obligatorio, máximo 500 caracteres -->
+          <div class="campo">
+            <label for="comentario-contacto">Comentario</label>
+            <textarea
+              id="comentario-contacto"
+              name="comentario"
+              maxlength="500"
+              rows="5"
+              aria-describedby="error-comentario-contacto"
+              required
+            ></textarea>
+            <span class="mensaje-error" id="error-comentario-contacto"></span>
+          </div>
+
+          <!-- Informa el resultado de la validación -->
+          <p id="estado-contacto" role="status" aria-live="polite"></p>
+
+          <button type="submit" class="boton boton-principal">
+            Validar consulta
+          </button>
+
+          <!-- Aclara el alcance de esta versión académica -->
+          <p>
+            Formulario de demostración: la consulta no se envía ni se guarda.
+          </p>
+        </form>
+      </section>
+    </main>
+    <!-- Pie de página común del sitio -->
+    <footer class="pie-pagina">
+      <div class="pie-contenido">
+        <div class="pie-marca">
+          <a class="marca" href="index.html">Pastelería Mil Sabores</a>
+          <p>
+            Creamos momentos dulces con tradición, dedicación y sabores para
+            compartir.
+          </p>
+        </div>
+
+        <nav class="pie-navegacion" aria-label="Navegación del pie de página">
+          <h2>Explora</h2>
+          <ul>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="pie-proyecto">
+          <h2>Proyecto académico</h2>
+          <p>DSY1104 – Desarrollo Fullstack II</p>
+          <p>Duoc UC · 2026</p>
+        </div>
+      </div>
+
+      <div class="pie-inferior">
+        <p>
+          &copy; 2026 Pastelería Mil Sabores. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+    <!-- Funciones compartidas y validación del formulario de contacto -->
+    <script src="js/validaciones.js"></script>
+  </body>
+</html>

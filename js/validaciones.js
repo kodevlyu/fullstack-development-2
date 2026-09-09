@@ -322,7 +322,109 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarFormularioRegistro();
 
 });
+// ---------------------------------------------------------------------
+// VALIDACIÓN DEL FORMULARIO DE CONTACTO
+// ---------------------------------------------------------------------
 
+// Comprueba que el nombre tenga contenido y no supere 100 caracteres
+function validarNombreContacto() {
+  const nombre = document.getElementById("nombre-contacto").value;
+
+  if (!validarTextoObligatorio(nombre, 100)) {
+    mostrarError(
+      "nombre-contacto",
+      "El nombre es obligatorio y permite hasta 100 caracteres."
+    );
+    return false;
+  }
+
+  limpiarError("nombre-contacto");
+  return true;
+}
+
+// Comprueba que el correo pertenezca a uno de los dominios permitidos
+function validarCorreoContacto() {
+  const correo = document.getElementById("correo-contacto").value;
+
+  if (!validarCorreo(correo, 100)) {
+    mostrarError(
+      "correo-contacto",
+      "Ingresa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com."
+    );
+    return false;
+  }
+
+  limpiarError("correo-contacto");
+  return true;
+}
+
+// Comprueba que el comentario tenga contenido y no supere 500 caracteres
+function validarComentarioContacto() {
+  const comentario = document.getElementById(
+    "comentario-contacto"
+  ).value;
+
+  if (!validarTextoObligatorio(comentario, 500)) {
+    mostrarError(
+      "comentario-contacto",
+      "El comentario es obligatorio y permite hasta 500 caracteres."
+    );
+    return false;
+  }
+
+  limpiarError("comentario-contacto");
+  return true;
+}
+
+// Conecta las validaciones con los campos y el botón del formulario
+function inicializarFormularioContacto() {
+  const formulario = document.getElementById("form-contacto");
+
+  // Detiene la función cuando la página no contiene el formulario
+  if (!formulario) return;
+
+  const nombre = document.getElementById("nombre-contacto");
+  const correo = document.getElementById("correo-contacto");
+  const comentario = document.getElementById(
+    "comentario-contacto"
+  );
+  const estado = document.getElementById("estado-contacto");
+
+  // Valida cada campo cuando el usuario sale de él
+  nombre.addEventListener("blur", validarNombreContacto);
+  correo.addEventListener("blur", validarCorreoContacto);
+  comentario.addEventListener("blur", validarComentarioContacto);
+
+  // Valida todos los campos al presionar el botón
+  formulario.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+
+    const nombreValido = validarNombreContacto();
+    const correoValido = validarCorreoContacto();
+    const comentarioValido = validarComentarioContacto();
+
+    estado.classList.remove(
+      "mensaje-error-general",
+      "mensaje-exito"
+    );
+
+    if (nombreValido && correoValido && comentarioValido) {
+      estado.textContent =
+        "La consulta fue validada correctamente.";
+      estado.classList.add("mensaje-exito");
+    } else {
+      estado.textContent =
+        "Revisa los campos marcados antes de continuar.";
+      estado.classList.add("mensaje-error-general");
+    }
+  });
+}
+
+// Ejecuta la preparación del formulario cuando termina de cargar la página
+document.addEventListener(
+  "DOMContentLoaded",
+  inicializarFormularioContacto
+);
 // VALIDACIONES PARA PRODUCTOS (nuevo-producto.html / editar-producto.html)
 
 // Código obligatorio, sin espacios, máximo 10 caracteres
@@ -485,7 +587,5 @@ function inicializarFormularioEditarProducto() {
 document.addEventListener("DOMContentLoaded", () => {
   inicializarFormularioNuevoProducto();
   inicializarFormularioEditarProducto();
-});
-
 });
 
