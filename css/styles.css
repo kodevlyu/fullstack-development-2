@@ -571,3 +571,54 @@ a {
   border-top: 1px solid rgb(255 255 255 / 12%);
   font-size: 0.88rem;
 }
+/* ==================================================
+   ADAPTACIÓN PARA TABLETS Y PANTALLAS PEQUEÑAS
+   Estas reglas se aplican con un ancho de 900 px
+   o menos. En pantallas mayores se mantiene
+   el diseño original.
+   ================================================== */
+@media (max-width: 900px) {
+  /* El encabezado se desplaza junto con la página.
+     La marca queda encima del menú. */
+  .encabezado-principal {
+    position: static;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Los enlaces pasan a otra línea cuando no caben
+     y se mantienen centrados. */
+  .menu-principal {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* La portada pasa a una columna:
+     primero el texto y después la imagen. */
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 64px 8px;
+  }
+
+  /* Limita el ancho del texto para facilitar su lectura. */
+  .hero-contenido {
+    max-width: 700px;
+  }
+
+  /* Reserva espacio vertical para la imagen del pastel. */
+  .hero-visual {
+    min-height: 460px;
+  }
+
+  /* Muestra las tarjetas una debajo de otra. */
+  .beneficios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Organiza el pie de página en una sola columna. */
+  .pie-contenido {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
