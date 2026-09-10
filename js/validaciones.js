@@ -318,6 +318,124 @@ function inicializarFormularioRegistro() {
   });
 }
 
+// ---------------------------------------------------------------------
+// Lógica específica del formulario de login (login.html)
+// ---------------------------------------------------------------------
+
+const CLAVE_SESION = "sesionActiva";
+
+/**
+ * Busca un usuario registrado que coincida con correo y contraseña.
+ * @param {string} correo
+ * @param {string} contrasena
+ * @returns {object|null}
+ */
+function buscarUsuarioPorCredenciales(correo, contrasena) {
+  const usuarios = obtenerUsuarios();
+  return (
+    usuarios.find(
+      u => u.correo === correo.trim().toLowerCase() && u.contrasena === contrasena
+    ) || null
+  );
+}
+
+/**
+ * Guarda la sesión activa (usuario sin su contraseña) en localStorage.
+ * @param {object} usuario
+ */
+function iniciarSesion(usuario) {
+  const { contrasena, ...usuarioSinClave } = usuario;
+  localStorage.setItem(CLAVE_SESION, JSON.stringify(usuarioSinClave));
+}
+
+/**
+ * Devuelve el usuario con sesión activa, o null si no hay nadie logeado.
+ * @returns {object|null}
+ */
+function obtenerSesionActiva() {
+  try {
+    const datos = localStorage.getItem(CLAVE_SESION);
+    return datos ? JSON.parse(datos) : null;
+  } catch (error) {
+    console.error("No se pudo leer la sesión activa:", error);
+    return null;
+  }
+}
+
+/**
+ * Cierra la sesión activa.
+ */
+function cerrarSesion() {
+  localStorage.removeItem(CLAVE_SESION);
+}
+
+function inicializarFormularioLogin() {
+  const form = document.getElementById("form-login");
+  if (!form) return;
+
+  const mensajeEstado = document.getElementById("estado-login");
+
+  const validadores = {
+    correo: validarCampoCorreo,
+    contrasena: () => {
+      const valor = document.getElementById("contrasena").value;
+      if (!valor) {
+        mostrarError("contrasena", "Debes ingresar tu contraseña.");
+        return false;
+      }
+      limpiarError("contrasena");
+      return true;
+    }
+  };
+
+  Object.keys(validadores).forEach(idCampo => {
+    const campo = document.getElementById(idCampo);
+    if (!campo) return;
+    campo.addEventListener("blur", validadores[idCampo]);
+  });
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    if (mensajeEstado) mensajeEstado.textContent = "";
+
+    const resultados = Object.values(validadores).map(validar => validar());
+    if (!resultados.every(Boolean)) {
+      if (mensajeEstado) {
+        mensajeEstado.textContent = "Revisa los campos marcados en rojo.";
+        mensajeEstado.classList.remove("mensaje-exito");
+        mensajeEstado.classList.add("mensaje-error-general");
+      }
+      return;
+    }
+
+    const correo = document.getElementById("correo").value.trim();
+    const contrasena = document.getElementById("contrasena").value;
+    const usuario = buscarUsuarioPorCredenciales(correo, contrasena);
+
+    if (!usuario) {
+      if (mensajeEstado) {
+        mensajeEstado.classList.remove("mensaje-exito");
+        mensajeEstado.classList.add("mensaje-error-general");
+        mensajeEstado.textContent = "Correo o contraseña incorrectos.";
+      }
+      return;
+    }
+
+    iniciarSesion(usuario);
+
+    if (mensajeEstado) {
+      mensajeEstado.classList.remove("mensaje-error-general");
+      mensajeEstado.classList.add("mensaje-exito");
+      mensajeEstado.textContent = `¡Bienvenido/a, ${usuario.nombre}! Redirigiendo...`;
+    }
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1200);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   inicializarFormularioRegistro();
+  inicializarFormularioLogin();
 });
