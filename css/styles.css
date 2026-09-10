@@ -909,7 +909,7 @@ a {
     grid-template-columns: 1fr;
   }
 }
-<<<<<<< HEAD
+
 /* Panel de administrador (usuarios y productos) */
 .nav-admin {
   display: flex;
@@ -931,7 +931,8 @@ a {
   background-color: var(--color-cafe);
 }
 
-main {
+/* Diseño exclusivo de la gestión de usuarios */
+.contenido-admin-usuarios {
   max-width: 960px;
   margin: 32px auto;
   padding: 0 20px 60px;
@@ -1021,7 +1022,6 @@ main {
   background-color: var(--color-crema);
   border-radius: 16px;
 }
-=======
 
 /* ===== MENÚ ADMIN ESTILO PASTELERÍA ===== */
 
@@ -1056,4 +1056,3 @@ main {
   color: #4a2c2a;
   border-radius: 8px;
 }
->>>>>>> 5c95c5a3d36fb76ffa3fb98e10207df99ac7879a
