@@ -69,10 +69,6 @@ const regiones = [
   }
 ];
 
-/**
- * Llena un <select> con el nombre de todas las regiones.
- * @param {HTMLSelectElement} selectRegion
- */
 function llenarSelectRegiones(selectRegion) {
   if (!selectRegion) return;
 
@@ -86,11 +82,6 @@ function llenarSelectRegiones(selectRegion) {
   });
 }
 
-/**
- * Llena un <select> de comunas según la región elegida.
- * @param {HTMLSelectElement} selectComuna
- * @param {string} nombreRegion
- */
 function llenarSelectComunas(selectComuna, nombreRegion) {
   if (!selectComuna) return;
 
@@ -113,12 +104,6 @@ function llenarSelectComunas(selectComuna, nombreRegion) {
   });
 }
 
-/**
- * Conecta un select de región con uno de comuna para que este último
- * se actualice automáticamente al cambiar la región.
- * @param {HTMLSelectElement} selectRegion
- * @param {HTMLSelectElement} selectComuna
- */
 function inicializarRegionesComunas(selectRegion, selectComuna) {
   if (!selectRegion || !selectComuna) return;
 

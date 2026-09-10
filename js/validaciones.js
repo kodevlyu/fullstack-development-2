@@ -5,13 +5,6 @@
 
 const DOMINIOS_CORREO_PERMITIDOS = ["duoc.cl", "profesor.duoc.cl", "gmail.com"];
 
-/**
- * Valida un RUN chileno con su dígito verificador.
- * Se espera SIN puntos ni guion, largo total entre 7 y 9 caracteres
- * (cuerpo + dígito verificador), dv puede ser un número o "K".
- * @param {string} run
- * @returns {boolean}
- */
 function validarRun(run) {
   if (typeof run !== "string") return false;
 
@@ -439,3 +432,270 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarFormularioRegistro();
   inicializarFormularioLogin();
 });
+// ---------------------------------------------------------------------
+// VALIDACIÓN DEL FORMULARIO DE CONTACTO
+// ---------------------------------------------------------------------
+
+// Comprueba que el nombre tenga contenido y no supere 100 caracteres
+function validarNombreContacto() {
+  const nombre = document.getElementById("nombre-contacto").value;
+
+  if (!validarTextoObligatorio(nombre, 100)) {
+    mostrarError(
+      "nombre-contacto",
+      "El nombre es obligatorio y permite hasta 100 caracteres."
+    );
+    return false;
+  }
+
+  limpiarError("nombre-contacto");
+  return true;
+}
+
+// Comprueba que el correo pertenezca a uno de los dominios permitidos
+function validarCorreoContacto() {
+  const correo = document.getElementById("correo-contacto").value;
+
+  if (!validarCorreo(correo, 100)) {
+    mostrarError(
+      "correo-contacto",
+      "Ingresa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com."
+    );
+    return false;
+  }
+
+  limpiarError("correo-contacto");
+  return true;
+}
+
+// Comprueba que el comentario tenga contenido y no supere 500 caracteres
+function validarComentarioContacto() {
+  const comentario = document.getElementById(
+    "comentario-contacto"
+  ).value;
+
+  if (!validarTextoObligatorio(comentario, 500)) {
+    mostrarError(
+      "comentario-contacto",
+      "El comentario es obligatorio y permite hasta 500 caracteres."
+    );
+    return false;
+  }
+
+  limpiarError("comentario-contacto");
+  return true;
+}
+
+// Conecta las validaciones con los campos y el botón del formulario
+function inicializarFormularioContacto() {
+  const formulario = document.getElementById("form-contacto");
+
+  // Detiene la función cuando la página no contiene el formulario
+  if (!formulario) return;
+
+  const nombre = document.getElementById("nombre-contacto");
+  const correo = document.getElementById("correo-contacto");
+  const comentario = document.getElementById(
+    "comentario-contacto"
+  );
+  const estado = document.getElementById("estado-contacto");
+
+  // Valida cada campo cuando el usuario sale de él
+  nombre.addEventListener("blur", validarNombreContacto);
+  correo.addEventListener("blur", validarCorreoContacto);
+  comentario.addEventListener("blur", validarComentarioContacto);
+
+  // Valida todos los campos al presionar el botón
+  formulario.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+
+    const nombreValido = validarNombreContacto();
+    const correoValido = validarCorreoContacto();
+    const comentarioValido = validarComentarioContacto();
+
+    estado.classList.remove(
+      "mensaje-error-general",
+      "mensaje-exito"
+    );
+
+    if (nombreValido && correoValido && comentarioValido) {
+      estado.textContent =
+        "La consulta fue validada correctamente.";
+      estado.classList.add("mensaje-exito");
+    } else {
+      estado.textContent =
+        "Revisa los campos marcados antes de continuar.";
+      estado.classList.add("mensaje-error-general");
+    }
+  });
+}
+
+// Ejecuta la preparación del formulario cuando termina de cargar la página
+document.addEventListener(
+  "DOMContentLoaded",
+  inicializarFormularioContacto
+);
+// VALIDACIONES PARA PRODUCTOS (nuevo-producto.html / editar-producto.html)
+
+// Código obligatorio, sin espacios, máximo 10 caracteres
+function validarCodigoProducto() {
+  const input = document.getElementById("codigo");
+  if (!input) return true; // en editar-producto es readonly
+
+  const valor = input.value.trim();
+
+  if (!valor) {
+    mostrarError("codigo", "El código es obligatorio.");
+    return false;
+  }
+  if (/\s/.test(valor)) {
+    mostrarError("codigo", "El código no puede contener espacios.");
+    return false;
+  }
+  if (valor.length > 10) {
+    mostrarError("codigo", "Máximo 10 caracteres.");
+    return false;
+  }
+
+  limpiarError("codigo");
+  return true;
+}
+
+// Nombre obligatorio, máximo 100 caracteres
+function validarNombreProducto() {
+  const valor = document.getElementById("nombre").value;
+  if (!validarTextoObligatorio(valor, 100)) {
+    mostrarError("nombre", "El nombre es obligatorio (máximo 100 caracteres).");
+    return false;
+  }
+  limpiarError("nombre");
+  return true;
+}
+
+// Precio mayor a 0
+function validarPrecioProducto() {
+  const input = document.getElementById("precio");
+  const valor = Number(input.value);
+
+  if (!valor || valor <= 0) {
+    mostrarError("precio", "El precio debe ser mayor a 0.");
+    return false;
+  }
+
+  limpiarError("precio");
+  return true;
+}
+
+// Descripción obligatoria, máximo 500 caracteres
+function validarDescripcionProducto() {
+  const valor = document.getElementById("descripcion").value;
+  if (!validarTextoObligatorio(valor, 500)) {
+    mostrarError("descripcion", "La descripción es obligatoria (máximo 500 caracteres).");
+    return false;
+  }
+  limpiarError("descripcion");
+  return true;
+}
+
+// Categoría debe ser una opción válida del select
+function validarCategoriaProducto() {
+  const valor = document.getElementById("categoria").value;
+  if (!valor) {
+    mostrarError("categoria", "Selecciona una categoría.");
+    return false;
+  }
+  limpiarError("categoria");
+  return true;
+}
+
+// Disponibilidad debe ser true o false
+function validarDisponibleProducto() {
+  const valor = document.getElementById("disponible").value;
+  if (valor !== "true" && valor !== "false") {
+    mostrarError("disponible", "Selecciona disponibilidad.");
+    return false;
+  }
+  limpiarError("disponible");
+  return true;
+}
+
+// Inicializa validaciones para nuevo-producto.html
+function inicializarFormularioNuevoProducto() {
+  const form = document.getElementById("form-nuevo-producto");
+  if (!form) return;
+
+  const validadores = {
+    codigo: validarCodigoProducto,
+    categoria: validarCategoriaProducto,
+    nombre: validarNombreProducto,
+    precio: validarPrecioProducto,
+    descripcion: validarDescripcionProducto,
+    disponible: validarDisponibleProducto
+  };
+
+  Object.keys(validadores).forEach(id => {
+    const campo = document.getElementById(id);
+    if (!campo) return;
+    const evento = campo.tagName === "SELECT" ? "change" : "blur";
+    campo.addEventListener(evento, validadores[id]);
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const resultados = Object.values(validadores).map(fn => fn());
+    const valido = resultados.every(Boolean);
+    const estado = document.getElementById("estado-admin");
+
+    if (!valido) {
+      estado.textContent = "Revisa los campos marcados en rojo.";
+      return;
+    }
+
+    estado.textContent = "Producto creado (simulación EP1).";
+    form.reset();
+  });
+}
+
+// Inicializa validaciones para editar-producto.html
+function inicializarFormularioEditarProducto() {
+  const form = document.getElementById("form-editar-producto");
+  if (!form) return;
+
+  const validadores = {
+    categoria: validarCategoriaProducto,
+    nombre: validarNombreProducto,
+    precio: validarPrecioProducto,
+    descripcion: validarDescripcionProducto,
+    disponible: validarDisponibleProducto
+  };
+
+  Object.keys(validadores).forEach(id => {
+    const campo = document.getElementById(id);
+    if (!campo) return;
+    const evento = campo.tagName === "SELECT" ? "change" : "blur";
+    campo.addEventListener(evento, validadores[id]);
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const resultados = Object.values(validadores).map(fn => fn());
+    const valido = resultados.every(Boolean);
+    const estado = document.getElementById("estado-admin");
+
+    if (!valido) {
+      estado.textContent = "Revisa los campos marcados en rojo.";
+      return;
+    }
+
+    estado.textContent = "Producto actualizado (simulación EP1).";
+  });
+}
+
+// Inicialización automática según la página
+document.addEventListener("DOMContentLoaded", () => {
+  inicializarFormularioNuevoProducto();
+  inicializarFormularioEditarProducto();
+});
+
