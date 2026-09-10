@@ -8,35 +8,32 @@
 
 <body>
   <!-- Encabezado y navegación principal -->
-  <!-- // Barra superior del sitio: logo + menú principal -->
   <header class="encabezado-principal">
     <a class="marca" href="index.html">Pastelería Mil Sabores</a>
 
     <nav aria-label="Navegación principal">
-      <!-- // Menú de navegación del sitio público -->
       <ul class="menu-principal">
-        <li><a href="index.html" aria-current="page">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html" aria-current="page">Productos</a></li>
         <li><a href="nosotros.html">Nosotros</a></li>
         <li><a href="blogs.html">Blogs</a></li>
         <li><a href="contacto.html">Contacto</a></li>
         <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="registro.html">Crear Cuenta</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <!-- // Contenedor general del catálogo -->
   <main class="contenedor">
 
     <!-- FILTROS -->
-    <!-- // Filtro por categoría para segmentar productos -->
     <section class="filtros">
       <h1>Catálogo de productos</h1>
 
       <div class="filtro-categorias">
         <label for="categoria">Filtrar por categoría:</label>
-        <!-- // Select que controla el filtrado dinámico -->
+
         <select id="categoria">
           <option value="todas">Todas</option>
           <option value="Tortas Cuadradas">Tortas Cuadradas</option>
@@ -52,7 +49,6 @@
     </section>
 
     <!-- LISTA DE PRODUCTOS -->
-    <!-- // Grid donde se renderizan las tarjetas desde main.js -->
     <section id="lista-productos" class="grid-productos">
       <!-- Render dinámico desde main.js -->
     </section>
@@ -60,14 +56,14 @@
   </main>
 
   <!-- FOOTER -->
-  <!-- // Pie de página del sitio -->
-  <footer>
+  <footer class="pie-pagina">
     <p>© 2026 Pastelería Mil Sabores</p>
+    <p><em>Más que postres: creamos momentos inolvidables en los que puedes confiar.</em></p>
   </footer>
 
   <!-- SCRIPTS -->
-  <!-- // Datos de productos + lógica de render y filtrado -->
   <script src="js/productos-data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
+

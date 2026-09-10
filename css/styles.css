@@ -571,216 +571,8 @@ a {
   border-top: 1px solid rgb(255 255 255 / 12%);
   font-size: 0.88rem;
 }
-/* ==================================================
-   ADAPTACIÓN PARA TABLETS Y PANTALLAS PEQUEÑAS
-   Estas reglas se aplican con un ancho de 900 px
-   o menos. En pantallas mayores se mantiene
-   el diseño original.
-   ================================================== */
-@media (max-width: 900px) {
-  /* El encabezado se desplaza junto con la página.
-     La marca queda encima del menú. */
-  .encabezado-principal {
-    position: static;
-    flex-direction: column;
-    gap: 12px;
-  }
 
-  /* Los enlaces pasan a otra línea cuando no caben
-     y se mantienen centrados. */
-  .menu-principal {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 
-  /* La portada pasa a una columna:
-     primero el texto y después la imagen. */
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding: 64px 8px;
-  }
-
-  /* Limita el ancho del texto para facilitar su lectura. */
-  .hero-contenido {
-    max-width: 700px;
-  }
-
-  /* Reserva espacio vertical para la imagen del pastel. */
-  .hero-visual {
-    min-height: 460px;
-  }
-
-  /* Muestra las tarjetas una debajo de otra. */
-  .beneficios-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Organiza el pie de página en una sola columna. */
-  .pie-contenido {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-}
-/* BLOG: separación entre el menú y el contenido */
-.seccion-blog {
-  margin-top: 48px;
-}
-
-/* Título principal del blog */
-.seccion-blog h1 {
-  margin-bottom: 16px;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 3rem;
-  line-height: 1.15;
-}
-
-/* Dos columnas iguales para los dos artículos */
-.seccion-blog .beneficios-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* Títulos de las tarjetas */
-.seccion-blog .beneficio h2 {
-  margin-bottom: 16px;
-  font-size: 1.5rem;
-  line-height: 1.3;
-}
-
-/* Organiza cada tarjeta de arriba hacia abajo */
-.seccion-blog .beneficio {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Mantiene los botones alineados al final de las tarjetas */
-.seccion-blog .boton {
-  align-self: flex-start;
-  margin-top: auto;
-}
-/* Mantiene todas las imágenes del blog con el mismo tamaño */
-.imagen-blog {
-  display: block;
-  width: 100%;
-  height: 220px;
-  margin: 20px 0 24px;
-  object-fit: cover;
-  border-radius: 24px;
-}
-/* En pantallas pequeñas, los artículos quedan apilados */
-@media (max-width: 900px) {
-  .seccion-blog .beneficios-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .seccion-blog h1 {
-    font-size: 2.2rem;
-  }
-}
-/* ARTÍCULOS: limita el ancho del texto para facilitar la lectura */
-.contenido-articulo {
-  position: relative;
-  z-index: 1;
-  max-width: 720px;
-}
-
-/* Separa los temas del artículo */
-.contenido-articulo section {
-  margin-bottom: 32px;
-}
-
-/* Subtítulos de cada tema */
-.contenido-articulo h2 {
-  margin-bottom: 12px;
-  color: var(--color-rosa);
-  font-size: 1.5rem;
-  line-height: 1.3;
-}
-
-/* Espacio y altura de línea para los párrafos */
-.contenido-articulo p {
-  margin-bottom: 16px;
-  color: rgb(255 255 255 / 85%);
-  line-height: 1.8;
-}
-/* ==================================================
-   INICIO DEL ADMINISTRADOR
-   ================================================== */
-
-/* Contenedor principal del panel */
-.admin-inicio {
-  width: min(1180px, calc(100% - 32px));
-  margin: 48px auto 80px;
-}
-
-/* Presentación superior del administrador */
-.admin-presentacion {
-  margin-bottom: 24px;
-  padding: 48px;
-  color: var(--color-blanco);
-  background-color: var(--color-cafe-oscuro);
-  border-radius: 32px;
-}
-
-/* Título principal del panel */
-.admin-presentacion h1 {
-  margin: 8px 0 16px;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 3rem;
-  line-height: 1.1;
-}
-
-/* Organiza los accesos en tres columnas */
-.admin-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-/* Tarjeta de cada módulo */
-.admin-tarjeta {
-  display: flex;
-  flex-direction: column;
-  padding: 28px;
-  background-color: var(--color-blanco);
-  border: 1px solid rgb(139 69 19 / 12%);
-  border-radius: 24px;
-  box-shadow: 0 16px 36px rgb(93 64 55 / 12%);
-}
-
-/* Títulos de las tarjetas */
-.admin-tarjeta h2 {
-  margin-bottom: 12px;
-  color: var(--color-cafe-oscuro);
-  font-size: 1.5rem;
-}
-
-/* Texto de las tarjetas */
-.admin-tarjeta p {
-  margin-bottom: 24px;
-  color: rgb(93 64 55 / 80%);
-  line-height: 1.6;
-}
-
-/* Mantiene los botones alineados al final */
-.admin-tarjeta .boton {
-  margin-top: auto;
-}
-
-/* En pantallas pequeñas, las tarjetas forman una columna */
-@media (max-width: 900px) {
-  .admin-presentacion {
-    padding: 32px 24px;
-  }
-
-  .admin-presentacion h1 {
-    font-size: 2.2rem;
-  }
-
-  .admin-grid {
-    grid-template-columns: 1fr;
-  }
-}
 /* Formularios (registro, login, contacto) */
 .seccion-formulario {
   width: min(720px, calc(100% - 32px));
@@ -835,9 +627,7 @@ a {
   background-color: var(--color-crema);
   border: 2px solid rgb(139 69 19 / 18%);
   border-radius: 12px;
-  transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .campo textarea {
@@ -910,119 +700,6 @@ a {
   }
 }
 
-/* Panel de administrador (usuarios y productos) */
-.nav-admin {
-  display: flex;
-  gap: 16px;
-  padding: 16px 24px;
-  background-color: var(--color-cafe-oscuro);
-}
-
-.nav-admin a {
-  color: var(--color-blanco);
-  font-weight: 700;
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 8px;
-}
-
-.nav-admin a:hover,
-.nav-admin a.activo {
-  background-color: var(--color-cafe);
-}
-
-/* Diseño exclusivo de la gestión de usuarios */
-.contenido-admin-usuarios {
-  max-width: 960px;
-  margin: 32px auto;
-  padding: 0 20px 60px;
-}
-
-.form-admin {
-  display: grid;
-  gap: 6px;
-  max-width: 480px;
-  margin-top: 20px;
-}
-
-.form-admin label {
-  font-weight: 700;
-  color: var(--color-cafe-oscuro);
-  margin-top: 10px;
-}
-
-.form-admin input,
-.form-admin select,
-.form-admin textarea {
-  padding: 10px 12px;
-  font: inherit;
-  border: 2px solid rgb(139 69 19 / 18%);
-  border-radius: 10px;
-  background-color: var(--color-crema);
-}
-
-.form-admin textarea {
-  min-height: 90px;
-  resize: vertical;
-}
-
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  margin-top: 16px;
-  color: var(--color-blanco);
-  background-color: var(--color-cafe);
-  border: none;
-  border-radius: 10px;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: var(--color-cafe-oscuro);
-}
-
-.btn-eliminar {
-  background-color: #b3261e;
-}
-
-.btn-eliminar:hover {
-  background-color: #8c1e18;
-}
-
-.tabla-admin {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-
-.tabla-admin th,
-.tabla-admin td {
-  padding: 10px 12px;
-  border-bottom: 1px solid rgb(139 69 19 / 15%);
-  text-align: left;
-}
-
-.tabla-admin th {
-  background-color: var(--color-crema);
-}
-
-.tabla-admin .btn {
-  margin-top: 0;
-  padding: 6px 10px;
-  font-size: 0.85rem;
-}
-
-.detalle-producto-admin {
-  display: grid;
-  gap: 8px;
-  padding: 20px;
-  margin-top: 16px;
-  background-color: var(--color-crema);
-  border-radius: 16px;
-}
-
 /* ===== MENÚ ADMIN ESTILO PASTELERÍA ===== */
 
 .menu-admin {
@@ -1039,9 +716,7 @@ a {
   font-weight: 600;
   padding: 8px 14px;
   border-radius: 8px;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Hover igual al menú público */
@@ -1056,3 +731,570 @@ a {
   color: #4a2c2a;
   border-radius: 8px;
 }
+
+
+@media (max-width: 640px) {
+  .fila-campos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* GRID DEL CATÁLOGO */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* TARJETA DE PRODUCTO */
+.producto-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+  text-align: center;
+}
+
+
+/* Ajuste global de imágenes del catálogo y detalle */
+.producto-card img,
+.detalle-producto-admin img,
+.detalle-producto img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Centrado del título y filtro del catálogo */
+.filtros {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.filtro-categorias {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+.filtro-categorias label {
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.filtro-categorias select {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 2px solid rgb(139 69 19 / 18%);
+  background-color: var(--color-crema);
+  font: inherit;
+}
+
+.pie-pagina p,
+.pie-inferior p {
+  text-align: center;
+}
+
+/*
+   DETALLE DEL PRODUCTO (sitio público)
+   */
+
+.contenedor {
+  width: min(1180px, calc(100% - 32px));
+  margin: 48px auto 80px;
+  padding: 20px;
+}
+
+.detalle-producto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  background: var(--color-blanco);
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgb(93 64 55 / 12%);
+}
+
+.detalle-producto img {
+  width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 12px 24px rgb(93 64 55 / 18%);
+}
+
+.detalle-producto h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: var(--color-cafe-oscuro);
+}
+
+.detalle-producto p {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: rgb(93 64 55 / 80%);
+}
+
+/* Bloque de personalización */
+.personalizacion {
+  margin-top: 40px;
+  background: var(--color-blanco);
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgb(93 64 55 / 12%);
+}
+
+.personalizacion h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: var(--color-cafe-oscuro);
+}
+
+.personalizacion textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--color-crema);
+  border: 2px solid rgb(139 69 19 / 18%);
+  font-size: 1rem;
+}
+
+.personalizacion .btn {
+  margin-top: 16px;
+  padding: 12px 22px;
+  background: var(--color-cafe);
+  color: var(--color-blanco);
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.personalizacion .btn:hover {
+  background: var(--color-cafe-oscuro);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .detalle-producto {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+   DETALLE DEL PRODUCTO - ADMIN (TABLA)
+   */
+
+.detalle-producto-admin {
+  width: 100%;
+  background: var(--color-blanco);
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 16px 36px rgb(93 64 55 / 12%);
+  overflow-x: auto;
+}
+
+.tabla-detalle {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+.tabla-detalle th,
+.tabla-detalle td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgb(139 69 19 / 15%);
+  text-align: left;
+}
+
+.tabla-detalle th {
+  background-color: var(--color-crema);
+  color: var(--color-cafe-oscuro);
+  font-weight: 700;
+  width: 180px;
+}
+
+.tabla-detalle td {
+  color: rgb(93 64 55 / 85%);
+}
+
+.tabla-detalle tr:hover {
+  background-color: rgb(255 245 225 / 60%);
+}
+
+/* Imagen del producto dentro de la tabla */
+.detalle-producto-admin img {
+  width: 260px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 12px 24px rgb(93 64 55 / 18%);
+  margin-bottom: 20px;
+}
+
+/* Botón volver */
+.acciones-superiores {
+  margin-top: 24px;
+}
+
+.btn-primario {
+  display: inline-block;
+  padding: 12px 22px;
+  background-color: var(--color-cafe);
+  color: var(--color-blanco);
+  border-radius: 12px;
+  font-weight: 700;
+  transition: background 180ms ease;
+}
+
+.btn-primario:hover {
+  background-color: var(--color-cafe-oscuro);
+}
+
+/* 
+   TABLA DETALLE - LÍNEAS VISIBLES
+   */
+
+.tabla-detalle {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 1rem;
+  border: 2px solid rgb(139 69 19 / 25%); /* borde externo visible */
+  border-radius: 12px;
+  overflow: hidden; /* redondeo del borde */
+}
+
+.tabla-detalle th,
+.tabla-detalle td {
+  padding: 14px 18px;
+  border: 1px solid rgb(139 69 19 / 25%); /* líneas internas visibles */
+  text-align: left;
+}
+
+.tabla-detalle th {
+  background-color: rgb(255 245 225);
+  color: var(--color-cafe-oscuro);
+  font-weight: 700;
+}
+
+.tabla-detalle tr:nth-child(even) td {
+  background-color: rgb(255 250 240); /* filas alternadas */
+}
+
+.tabla-detalle tr:hover td {
+  background-color: rgb(255 235 210); /* hover pastel */
+  transition: background-color 0.2s ease;
+}
+
+/* 
+   FORMULARIO ADMIN EN FORMATO TABLA
+   */
+
+.form-admin {
+  width: 100%;
+  background: var(--color-blanco);
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 16px 36px rgb(93 64 55 / 12%);
+  border: 2px solid rgb(139 69 19 / 25%);
+  display: table;
+  border-collapse: collapse;
+}
+
+.form-admin label {
+  display: table-cell;
+  padding: 14px 18px;
+  font-weight: 700;
+  background-color: rgb(255 245 225);
+  border: 1px solid rgb(139 69 19 / 25%);
+  width: 200px;
+  vertical-align: middle;
+}
+
+.form-admin input,
+.form-admin select,
+.form-admin textarea {
+  display: table-cell;
+  padding: 12px 14px;
+  border-radius: 0;
+  border: 1px solid rgb(139 69 19 / 25%);
+  background-color: rgb(255 250 240);
+  width: 100%;
+}
+
+.form-admin textarea {
+  resize: vertical;
+}
+
+.form-admin button {
+  margin-top: 20px;
+  padding: 12px 22px;
+  background-color: var(--color-cafe);
+  color: var(--color-blanco);
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.form-admin button:hover {
+  background-color: var(--color-cafe-oscuro);
+}
+
+/* Cada par label + input se convierte en fila */
+.form-admin label,
+.form-admin input,
+.form-admin select,
+.form-admin textarea {
+  display: table-cell;
+}
+
+.form-admin label + input,
+.form-admin label + select,
+.form-admin label + textarea {
+  border-left: none;
+}
+
+.form-admin label {
+  border-right: none;
+}
+
+/* Ajuste de filas */
+.form-admin label {
+  border-bottom: 1px solid rgb(139 69 19 / 25%);
+}
+
+.form-admin input,
+.form-admin select,
+.form-admin textarea {
+  border-bottom: 1px solid rgb(139 69 19 / 25%);
+}
+
+/* 
+   FORMULARIO ADMIN - AJUSTE DE DIMENSIONES
+/* Ajuste general del formulario */
+.form-admin {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--color-blanco);
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 16px 36px rgb(93 64 55 / 12%);
+  border: 2px solid rgb(139 69 19 / 18%);
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 0; /* elimina cortes entre filas */
+}
+
+/* FILAS */
+.form-admin label,
+.form-admin input,
+.form-admin select,
+.form-admin textarea {
+  border: 1px solid rgb(139 69 19 / 25%);
+  padding: 14px 16px;
+  font-size: 1rem;
+}
+
+/* COLUMNA IZQUIERDA */
+.form-admin label {
+  background-color: rgb(255 245 225);
+  font-weight: 700;
+  color: var(--color-cafe-oscuro);
+  display: flex;
+  align-items: center; /* centra verticalmente */
+  justify-content: flex-start;
+  height: 54px; /* altura uniforme */
+}
+
+/* COLUMNA DERECHA */
+.form-admin input,
+.form-admin select {
+  background-color: rgb(255 250 240);
+  height: 54px; /* misma altura que la etiqueta */
+  display: flex;
+  align-items: center;
+}
+
+/* TEXTAREA */
+.form-admin textarea {
+  background-color: rgb(255 250 240);
+  min-height: 120px;
+  padding: 14px 16px;
+  resize: vertical;
+}
+
+/* BORDES PERFECTOS */
+.form-admin label {
+  border-right: none;
+}
+
+.form-admin input,
+.form-admin select,
+.form-admin textarea {
+  border-left: none;
+}
+
+/* BOTÓN */
+.form-admin button {
+  grid-column: span 2;
+  margin-top: 20px;
+  padding: 12px 26px;
+  background-color: var(--color-cafe);
+  color: var(--color-blanco);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.form-admin button:hover {
+  background-color: var(--color-cafe-oscuro);
+}
+
+/* MENSAJE DE ESTADO */
+.estado-admin {
+  grid-column: span 2;
+  margin-top: 10px;
+}
+
+/* Centrar menú admin */
+.menu-admin {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* CENTRA TODO */
+  gap: 20px;
+  padding: 15px 20px;
+  background-color: #fff;
+}
+
+/* Centrar títulos del admin */
+.contenedor-admin h1 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Centrar botón superior del admin */
+.acciones-superiores {
+  display: flex;
+  justify-content: center; /* CENTRA EL BOTÓN */
+  margin: 20px 0 30px; /* espacio bonito */
+}
+
+/* 
+   SIMULACIÓN DE EDICIÓN
+   */
+
+.detalle-edicion-simulada table td {
+  background-color: rgb(255 250 240);
+  font-style: italic;
+  color: rgb(93 64 55 / 85%);
+}
+
+.detalle-edicion-simulada table td::after {
+  content: "  ✎";
+  color: rgb(139 69 19 / 45%);
+  font-size: 0.9rem;
+}
+
+.detalle-edicion-simulada table th {
+  background-color: rgb(255 245 225);
+  font-weight: 700;
+}
+
+.detalle-edicion-simulada {
+  border: 2px dashed rgb(139 69 19 / 25%);
+  padding: 24px;
+  border-radius: 18px;
+}
+
+.modal-admin {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 45%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-contenido {
+  background: var(--color-blanco);
+  padding: 28px;
+  border-radius: 18px;
+  width: min(360px, 90%);
+  box-shadow: 0 16px 36px rgb(93 64 55 / 20%);
+  text-align: center;
+}
+
+.modal-contenido p {
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  color: var(--color-cafe-oscuro);
+}
+
+.modal-contenido input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  border: 2px solid rgb(139 69 19 / 20%);
+  background: var(--color-crema);
+}
+
+.modal-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* BOTONES PRIMARIOS */
+.btn-primario {
+  background-color: var(--color-cafe);
+  color: var(--color-blanco);
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primario:hover {
+  background-color: var(--color-cafe-oscuro);
+}
+
+/* BOTONES SECUNDARIOS (No / Cancelar) */
+.btn-secundario {
+  background-color: rgb(255 250 240);
+  color: var(--color-cafe-oscuro);
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  border: 2px solid rgb(139 69 19 / 25%);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-secundario:hover {
+  background-color: rgb(255 240 220);
+}
+
+/* Alineación dentro de los modales */
+.modal-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+

@@ -32,7 +32,7 @@
 
     <!-- TABLA DE PRODUCTOS -->
     <!-- // Tabla administrativa: lista completa de productos -->
-    <table class="tabla-admin">
+    <table class="tabla-detalle">
       <thead>
         <tr>
           <th>Código</th>
@@ -54,15 +54,39 @@
 
   </main>
 
+  <!-- MODAL CONFIRMAR ELIMINACIÓN -->
+<div id="modal-confirmar" class="modal-admin">
+  <div class="modal-contenido">
+    <p>¿Seguro desea eliminar este producto?</p>
+    <div class="modal-acciones">
+      <button id="btn-confirmar-si" class="btn btn-primario">Sí</button>
+      <button id="btn-confirmar-no" class="btn btn-secundario">No</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL INGRESAR CLAVE -->
+<div id="modal-clave" class="modal-admin">
+  <div class="modal-contenido">
+    <p>Ingrese su clave de administrador</p>
+    <input id="clave-admin" type="password" placeholder="Clave de administrador">
+    <div class="modal-acciones">
+      <button id="btn-clave-confirmar" class="btn btn-primario">Confirmar</button>
+      <button id="btn-clave-cancelar" class="btn btn-secundario">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
   <!-- FOOTER -->
-  <!-- // Pie de página del módulo administrador -->
-  <footer>
-    <p>© 2026 Pastelería Mil Sabores - Administrador</p>
+  <footer class="pie-pagina">
+    <p>© 2026 Pastelería Mil Sabores</p>
+    <p><em>Más que postres: creamos momentos inolvidables en los que puedes confiar.</em></p>
   </footer>
 
   <!-- SCRIPTS -->
   <!-- // Datos del catálogo + lógica del módulo administrador -->
   <script src="../js/productos-data.js"></script>
-  <script src="../js/admin-productos.js"></script>
+  <script src="../js/validaciones.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-// RENDER CATÁLOGO PÚBLICO
-// // Genera las tarjetas de productos en productos.html
+
+// CATÁLOGO PÚBLICO — RENDER DE TARJETAS (productos.html)
 function renderProductos(lista) {
   const contenedor = document.getElementById("lista-productos");
   if (!contenedor) return;
@@ -8,7 +8,9 @@ function renderProductos(lista) {
 
   lista.forEach(p => {
     const card = document.createElement("article");
-    card.className = "card-producto";
+
+    // Clase unificada para evitar conflictos entre versiones
+    card.className = "producto-card";
 
     card.innerHTML = `
       <img src="${p.imagen}" alt="${p.nombre}">
@@ -22,8 +24,9 @@ function renderProductos(lista) {
   });
 }
 
-// INICIALIZACIÓN DEL CATÁLOGO
-// // Render inicial + filtro por categoría
+
+
+// CATÁLOGO PÚBLICO — FILTRO POR CATEGORÍA
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof productos !== "undefined") {
     renderProductos(productos);
@@ -36,20 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
       const filtrados = cat === "todas"
         ? productos
         : productos.filter(p => p.categoria === cat);
+
       renderProductos(filtrados);
     });
   }
 });
 
-// OBTENER CÓDIGO DESDE URL
-// // Extrae el código del producto desde la query string
+// DETALLE PÚBLICO — OBTENER CÓDIGO DESDE URL
 function obtenerCodigoProducto() {
   const params = new URLSearchParams(window.location.search);
   return params.get("codigo");
 }
 
-// RENDER DETALLE PÚBLICO
-// // Inserta imagen, nombre, descripción, categoría y precio en detalle-producto.html
+
+// DETALLE PÚBLICO — RENDER DE INFORMACIÓN (detalle-producto.html)
+
 function renderDetalleProductoPublico() {
   const cont = document.getElementById("detalle-producto");
   if (!cont || typeof productos === "undefined") return;
@@ -70,20 +74,23 @@ function renderDetalleProductoPublico() {
     <p>Precio: $${p.precio.toLocaleString("es-CL")}</p>
   `;
 
-  // // Mostrar bloque de personalización solo si el producto lo permite
+  // Mostrar personalización solo si el producto lo permite
   const personalizacion = document.getElementById("personalizacion");
   if (personalizacion) {
     personalizacion.style.display = p.personalizable ? "block" : "none";
   }
 }
 
-// INICIALIZACIÓN DEL DETALLE
-// // Render del detalle + manejo del formulario de personalización
+
+// DETALLE PÚBLICO — FORMULARIO DE PERSONALIZACIÓN
 document.addEventListener("DOMContentLoaded", () => {
+
+  // Render del detalle
   if (document.getElementById("detalle-producto")) {
     renderDetalleProductoPublico();
   }
 
+  // Manejo del formulario de mensaje personalizado
   const form = document.getElementById("form-mensaje");
   if (form) {
     form.addEventListener("submit", e => {
@@ -97,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // // Simulación EP1: no se guarda realmente
+      // Simulación EP1
       estado.textContent = "Mensaje guardado (simulación EP1).";
     });
   }
