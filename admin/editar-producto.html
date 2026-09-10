@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ver producto - Administrador</title>
+  <title>Editar producto - Administrador</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
+
   <!-- NAV ADMIN -->
-  <!-- // Menú superior del administrador: navegación entre módulos -->
   <header>
     <nav aria-label="Navegación administrador">
       <ul class="menu-admin">
@@ -20,35 +20,54 @@
   </header>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <!-- // Contenedor general del detalle del producto en el administrador -->
   <main class="contenedor-admin">
 
-    <h1>Detalle del producto</h1>
+    <h1>Editar producto (simulación)</h1>
 
-    <!-- // Sección donde admin-productos.js inserta los datos del producto -->
-    <section id="detalle-producto-admin" class="detalle-producto-admin">
-      <!-- Render dinámico desde admin-productos.js -->
+    <section id="detalle-producto-admin" class="detalle-producto-admin detalle-edicion-simulada">
+      <!-- admin-productos.js inserta aquí la tabla -->
     </section>
 
-    <!-- // Botón para volver al listado de productos -->
     <div class="acciones-superiores">
       <a href="productos.html" class="btn btn-primario">Volver al listado</a>
     </div>
 
-    <!-- // Mensajes de estado: errores, confirmaciones, etc. -->
     <p id="estado-admin" class="estado-admin"></p>
 
   </main>
 
+  <!-- MODAL CONFIRMAR ELIMINACIÓN -->
+  <div id="modal-confirmar" class="modal-admin">
+    <div class="modal-contenido">
+      <p>¿Seguro desea eliminar este producto?</p>
+      <div class="modal-acciones">
+        <button id="btn-confirmar-si" class="btn btn-primario">Sí, eliminar</button>
+        <button id="btn-confirmar-no" class="btn btn-secundario">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL INGRESAR CLAVE -->
+  <div id="modal-clave" class="modal-admin">
+    <div class="modal-contenido">
+      <p>Ingrese su clave de administrador</p>
+      <input id="clave-admin" type="password" placeholder="Clave de administrador">
+      <div class="modal-acciones">
+        <button id="btn-clave-confirmar" class="btn btn-primario">Confirmar</button>
+        <button id="btn-clave-cancelar" class="btn btn-secundario">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
-  <!-- // Pie de página del módulo administrador -->
-  <footer>
-    <p>© 2026 Pastelería Mil Sabores - Administrador</p>
+  <footer class="pie-pagina">
+    <p>© 2026 Pastelería Mil Sabores</p>
+    <p><em>Más que postres: creamos momentos inolvidables en los que puedes confiar.</em></p>
   </footer>
 
   <!-- SCRIPTS -->
-  <!-- // Datos del catálogo + lógica del módulo administrador -->
   <script src="../js/productos-data.js"></script>
-  <script src="../js/admin-productos.js"></script>
+  <script src="../js/validaciones.js"></script>
+
 </body>
 </html>
