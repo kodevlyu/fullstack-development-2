@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrador - Usuarios</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="nav-admin">
+      <a href="index.html">Home administrador</a>
+      <a href="productos.html">Productos</a>
+      <a href="usuarios.html" class="activo">Usuarios</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Gestión de usuarios</h1>
+    <a href="nuevo-usuario.html" class="btn">Nuevo usuario</a>
+
+    <table class="tabla-admin">
+      <thead>
+        <tr>
+          <th>RUN</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Comuna</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-usuarios">
+        <!-- Filas generadas por JS -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>© 2024 Pastelería Mil Sabores - Administrador</p>
+  </footer>
+
+  <script src="../js/validaciones.js"></script>
+  <script src="../js/usuarios-admin.js"></script>
+</body>
+</html>

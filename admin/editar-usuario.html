@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar usuario</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="nav-admin">
+      <a href="index.html">Home administrador</a>
+      <a href="productos.html">Productos</a>
+      <a href="usuarios.html" class="activo">Usuarios</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Editar usuario</h1>
+    <form id="form-editar-usuario" class="form-admin">
+      <label for="run">RUN</label>
+      <input id="run" name="run" type="text" maxlength="9" readonly>
+
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text" maxlength="50">
+      <span class="mensaje-error" id="error-nombre"></span>
+
+      <label for="apellidos">Apellidos</label>
+      <input id="apellidos" name="apellidos" type="text" maxlength="100">
+      <span class="mensaje-error" id="error-apellidos"></span>
+
+      <label for="correo">Correo electrónico</label>
+      <input id="correo" name="correo" type="email" maxlength="100">
+      <span class="mensaje-error" id="error-correo"></span>
+
+      <label for="direccion">Dirección</label>
+      <textarea id="direccion" name="direccion" maxlength="300"></textarea>
+      <span class="mensaje-error" id="error-direccion"></span>
+
+      <label for="region">Región</label>
+      <select id="region" name="region">
+        <option value="">Selecciona una región</option>
+      </select>
+      <span class="mensaje-error" id="error-region"></span>
+
+      <label for="comuna">Comuna</label>
+      <select id="comuna" name="comuna" disabled>
+        <option value="">Selecciona una región primero</option>
+      </select>
+      <span class="mensaje-error" id="error-comuna"></span>
+
+      <p id="estado-editar-usuario" role="status" aria-live="polite"></p>
+
+      <button type="submit" class="btn">Actualizar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2024 Pastelería Mil Sabores - Administrador</p>
+  </footer>
+
+  <script src="../js/regiones-comunas.js"></script>
+  <script src="../js/validaciones.js"></script>
+  <script src="../js/usuarios-admin.js"></script>
+</body>
+</html>
